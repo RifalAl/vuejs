@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bab 8</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="bab8" class="container">
+    <h1 class="mt-4 text-center">Bab 8 Array</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.1 Dasar Array</h4>
+          <ul>
+            <li>{{kendaraan[0]}}</li>
+            <li>{{kendaraan[1]}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.2 Menampilkan seluruh data array</h4>
+          <ul>
+            <li v-for="kd in kendaraan">{{kd}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.3 Menambah data array</h4>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" v-model="isi">
+            <div class="input-group-append">
+              <button class="btn btn-success" @click="tambah">Tambah Data</button>
+            </div>
+          </div>
+          <ul>
+            <li v-for="kd in kendaraan">
+              {{kd}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.4 Menghapus Array</h4>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" v-model="isi2">
+            <div class="input-group-append">
+              <button class="btn btn-success" @click="tambah2">Tambah Data</button>
+            </div>
+          </div>
+          <ul>
+            <li v-for="(kd, index) in kendaraan2" class="mb-2">
+              <button class="btn btn-outline-danger" @click="hapus(index)">x</button>
+              {{kd}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.5 Aray Multivalue</h4>
+          <ul v-for="kd in kendaraan3">
+            <li>
+              jenisnya : {{kd.jenis}} <br>
+              merknya: {{kd.merk}} <br>
+              warnanya: {{kd.warna}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.6 Kombinasi Array dengan computed property</h4>
+          <div class="row">
+            <div class="col-4">
+              <label>List Semua Barang:</label>
+              <ul>
+                <li v-for="b in barang" v-text="b.jenis"></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <label>List Barang Tersedia:</label>
+              <ul>
+                <li v-for="b in barangAda" v-text="b.jenis"></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <label>List Barang Habis:</label>
+              <ul>
+                <li v-for="b in barangHabis" v-text="b.jenis"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.7 Trik Array</h4>
+          <label>Pengguanaan directive v-for juga dapat menghasilkan nilai terururt dari 1 sampai sekian dengan langsung memberikan nilai pada directive v-for.</label>
+          <b v-for="x in 10">
+            {{x}}
+          </b>
+          <label class="mt-3">kita juga dapat ber-eksperimen dengan menambahkan directive lain, misalnya ditambahkan directice v-if untuk menghasilkan nilai yang lain</label>
+          <b v-for="y in 10" v-if="y != 10">
+            {{y}}
+          </b>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="textBoxWrap mx-auto bg-light p-4 mt-4">
+          <h4 class="mb-3">8.8 program search array</h4>
+          <input type="text" class="form-control mb-3" placeholder="cari berdasarkan warna" v-model="cari">
+          <ul v-for="kd in filterKendaraan">
+            <li>
+              jenisnya : {{kd.jenis}} <br>
+              merknya: {{kd.merk}} <br>
+              warnanya: {{kd.warna}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="assets/js/vue.min.js"></script>
+<script src="assets/js/bab_8.js"></script>
+
+</html>

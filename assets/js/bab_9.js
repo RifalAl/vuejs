@@ -7,30 +7,36 @@ var app = new Vue({
 
   },
 
-  computed:{
+  computed: {
 
   },
 
   filters: {
-    kapital(value){
+    kapital(value) {
       if (!value) return ""
       value = value.toString()
       return value.toUpperCase()
     },
-    kecil(value){
+    kecil(value) {
       if (!value) return ""
       value = value.toString()
       return value.toLowerCase()
     },
-    terbalik(value){
+    terbalik(value) {
       if (!value) return
       value = value.toString()
       return value.split('').reverse().join('')
     },
-    terbalik2(value){
+    terbalik2(value) {
       if (!value) return
       value = value.toString()
       return value.split(' ').reverse().join(' ')
+    },
+    kapitalDepan(value){
+      if (!value) return "";
+      console.log(value);
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     }
   }
 })
